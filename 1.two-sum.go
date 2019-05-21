@@ -28,13 +28,13 @@
  *
  */
 func twoSum(nums []int, target int) []int {
-	res := []int{}
-	for i1, v1 := range nums {
-		for i2, v2 := range nums {
-			if (i1 != i2) && (v1+v2 == target) {
-				res = []int{i1, i2}
-			}
+	lookup := make(map[int]int)
+	for i, val := range nums {
+		j, ok := lookup[target-val]
+		lookup[val] = i
+		if ok {
+			return []int{j, i}
 		}
 	}
-	return res
+	return []int{}
 }
