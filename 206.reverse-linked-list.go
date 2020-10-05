@@ -34,7 +34,8 @@
  * }
  */
 func reverseList(head *ListNode) *ListNode {
-	prev, curr := nil, head
+	var prev *ListNode
+	curr := head
 	for curr != nil {
 		nextTemp := curr.Next
 		curr.Next = prev
